@@ -1,0 +1,21 @@
+/*CSS*/
+
+#backToTop {
+  z-index: 1000;
+}
+
+#home {
+    height: 80svh;
+}
+
+#about {
+    height: 40svh;
+    margin-bottom: 150px;
+}
+.vote {
+    margin-top: 20px;
+}
+
+.abata {
+    height: 80svh;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukka Hut Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <!-- Search Bar Section -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Search Our Menu</h2>
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="Search for dishes, drinks, or desserts..."
+                    class="w-full p-4 rounded-lg bg-gray-700 border border-orange-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <button id="searchButton"
+                    class="absolute right-0 top-0 mt-4 mr-4 bg-orange-700 hover:bg-orange-600 text-white py-2 px-4 rounded-lg font-semibold">
+                    Search
+                </button>
+            </div>
+            <ul id="resultsList" class="mt-6 text-left"></ul>
+        </div>
+    </section>
+
+    <!-- Example Menu Items (hidden) -->
+    <ul id="menuItems" class="hidden">
+        <li>Burger</li>
+        <li>Fries</li>
+        <li>Chicken Wings</li>
+        <li>Pizza</li>
+        <li>Milkshake</li>
+        <li>Coffee</li>
+        <li>Salad</li>
+        <li>Ice Cream</li>
+        <li>Soda</li>
+        <li>Hot Dog</li>
+    </ul>
+
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function () {
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            const menuItems = document.querySelectorAll('#menuItems li');
+            const resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = '';
+
+            menuItems.forEach(function (item) {
+                if (item.textContent.toLowerCase().includes(searchQuery)) {
+                    const li = document.createElement('li');
+                    li.textContent = item.textContent;
+                    li.classList.add('p-2', 'bg-gray-800', 'rounded-lg', 'mt-2');
+                    resultsList.appendChild(li);
+                }
+            });
+
+            if (resultsList.innerHTML === '') {
+                resultsList.innerHTML = '<li class="p-2 bg-gray-800 rounded-lg mt-2">No results found</li>';
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.getElementById('searchButton').click();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Bukka Hut</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for advanced UI/UX */
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hover:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hover:hover:after {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+      <!-- Navigation -->
+  <nav class="shadow-md bg-gray-900">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="text-2xl font-bold text-blue-600">
+        <a href="#" class="flex flex-col lg:flex-row items-center lg:space-x-8 p-4">
+          <img src="Logo-r.png" alt="Bukka Hut" width="60">
+          </a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+        <a href="#" class="text-gray-600 hover:text-blue-600">About</a>
+        <a href="#" class="text-gray-600 hover:text-blue-600">Menu</a>
+        <a href="#" class="text-gray-600 hover:text-blue-600">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-button" class="text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-md">
+      <a href="test.html" class="block px-4 py-2 text-white hover:bg-orange-600">Home</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">About</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">Menu</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">Contact</a>
+    </div>
+  </nav>
+
+  <section class="py-16 lg:py-24 bg-gradient-to-r from-gray-800 via-blue-600 to-green-500 text-gray-200">
+    <div class="container mx-auto px-6 lg:px-12 fade-in">
+      <div class="text-center mb-16 bg-orange-700 p-3 rounded-lg">
+        <h2 class="text-5xl font-bold tracking-wide">About Bukka Hut</h2>
+        <p class="mt-6 max-w-3xl mx-auto text-lg lg:text-xl">
+          Experience the true taste of Nigerian cuisine with a blend of traditional flavors and modern dining. Bukka Hut is your go-to spot for delicious, affordable meals served in a warm and inviting atmosphere.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16 bg-orange-700 p-3 rouned-lg">
+        <div class="hover relative bg-white bg-opacity-10 rounded-lg p-8 transition duration-500 transform hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-3xl font-semibold">Our Mission</h3>
+          <p class="mt-4 text-lg lg:text-xl">
+            We are committed to delivering the finest local dishes, using fresh ingredients and authentic recipes that remind you of home. Our goal is to support our community and promote sustainability while providing you with a memorable dining experience.
+          </p>
+        </div>
+        <div class="hover relative bg-white bg-opacity-10 rounded-lg p-8 transition duration-500 transform hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-3xl font-semibold">What Makes Us Unique</h3>
+          <ul class="mt-4 text-lg lg:text-xl list-disc list-inside">
+            <li>Authentic Nigerian cuisine with a modern twist</li>
+            <li>Fresh, locally sourced ingredients</li>
+            <li>Friendly, welcoming service</li>
+            <li>Comfortable dining atmosphere</li>
+            <li>Commitment to sustainability and community support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<script src="main.js"></script>
+</body>
+
+</html>

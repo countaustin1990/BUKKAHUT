@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="Logo" content="./Logo.png" />
+
+    <title>Bukka Hut</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .animate-scroll {
+            display: inline-flex;
+            animation: scroll 10s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+      <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 text-bold bg-orange-700 text-gray-800 p-4 rounded-full shadow-lg hover:bg-orange-600 transition-transform transform hover:scale-110 mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg> <!-- Upward arrow character -->
+    </button>
+
+
+    <!-- Navigation -->
+  <nav class="shadow-md bg-orange-800">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="text-2xl font-bold text-blue-600">
+        <a href="#" class="flex flex-col lg:flex-row items-center lg:space-x-8 p-4">
+          <img src="Logo-r.png" alt="Bukka Hut" width="80">
+          </a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-white hover:bg-orange-600 py-4 px-6 rounded-lg ">Home</a>
+        <a href="#" class="text-white hover:bg-orange-600 py-4 px-6 rounded-lg ">About</a>
+        <a href="#" class="text-white hover:bg-orange-600 py-4 px-6 rounded-lg ">Menu</a>
+        <a href="#" class="text-white hover:bg-orange-600 py-4 px-6 rounded-lg ">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-button" class="text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-md">
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">Home</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">About</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">Menu</a>
+      <a href="#" class="block px-4 py-2 text-white hover:bg-orange-600">Contact</a>
+    </div>
+  </nav>
+  <!--------------------------------------------------------------------------------------------->
+  <section class="flex justify-center items-center p-5 container mx-auto">
+  <div class="overflow-x-auto whitespace-nowrap py-4 px-6 bg-orange-200 mt-5 container mx-auto">
+    <h2 class="text-3xl text-center font-bold mb-6">Our Menu</h2>
+    <div class="animate-scroll">
+      <a href="Menu.html">
+        <img src="burger.jpg" alt="Burger" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="fries.jpg" alt="Fries" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="drink.jpg" alt="Drink" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="dessert.jpg" alt="Dessert" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="pizza.jpg" alt="Pizza" class="inline-block h-48 mx-4 rounded-lg">
+      </a>
+      <!-- Repeat images as needed to fill the scroll area -->
+    </div>
+  </div>
+</section>
+<!-- Tabs -->
+<div class="container mx-auto py-10">
+    <div class="flex justify-center mb-8">
+        <button class="tab-btn text-orange-700 border-b-2 px-6 py-2 mx-2 focus:outline-none focus:border-b-4 border-orange-700" onclick="showTab('meals')">Meals</button>
+        <button class="tab-btn text-gray-700 border-b-2 px-6 py-2 mx-2 focus:outline-none" onclick="showTab('snacks')">Snacks</button>
+        <button class="tab-btn text-gray-700 border-b-2 px-6 py-2 mx-2 focus:outline-none" onclick="showTab('drinks')">Drinks</button>
+    </div>
+
+    <!-- Meals Tab -->
+    <div id="meals" class="tab-content">
+        <h2 class="text-2xl font-bold mb-4 p-2">Meals</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Egba & Egusi soup</h3>
+                    <p class="text-gray-700">A delicious african meal served with vegetables, and pumpkey seeds.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+            </div>
+            <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Eseu and Powded yam</h3>
+                    <p class="text-gray-700">A delicious african dish served with vegetables and goat head.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Grilled Chicken</h3>
+                    <p class="text-gray-700">A delicious grilled chicken served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+            </div>
+             <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Grilled Cat Fish plus</h3>
+                    <p class="text-gray-700">A delicious grilled chicken served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$32.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Asue</h3>
+                    <p class="text-gray-700">A delicious african goat meat soup served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$25.99</p>
+                </div>
+            </div>
+             <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Grilled Chicken Ganash</h3>
+                    <p class="text-gray-700">A delicious grilled chicken served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Fired Rice</h3>
+                    <p class="text-gray-700">A delicious fried rices served with vegetables plus vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$32.99</p>
+                </div>
+            </div>
+             <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Moi Moi</h3>
+                    <p class="text-gray-700">A delicious african native meal served with vegetables, fish, or egg plus ogi.</p>
+                    <p class="text-gray-900 font-bold mt-4">$42.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Amala Ati Ewedu</h3>
+                    <p class="text-gray-700">A delicious african  native soup served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$52.99</p>
+                </div>
+            </div>
+             <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Bread & Tea</h3>
+                    <p class="text-gray-700">A delicious breakfast served with milk, egg and protein of your choice.</p>
+                    <p class="text-gray-900 font-bold mt-4">$32.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">White & Stew</h3>
+                    <p class="text-gray-700">A delicious grilled chicken served with vegetables and proteins.</p>
+                    <p class="text-gray-900 font-bold mt-4">$52.99</p>
+                </div>
+            </div>
+            <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2"></h3>
+                    <p class="text-gray-700">A delicious grilled chicken served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Black Soup</h3>
+                    <p class="text-gray-700">A delicious nutrious meal served with vegetables extra.</p>
+                    <p class="text-gray-900 font-bold mt-4">$72.99</p>
+                </div>
+            </div>
+            <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Edikaikong</h3>
+                    <p class="text-gray-700">A delicious afiran meal served with vegetables, and proteins.</p>
+                    <p class="text-gray-900 font-bold mt-4">$22.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Afang Soup</h3>
+                    <p class="text-gray-700">A delicious african meal served with vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                </div>
+            </div>
+            <!-- Add more meal cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Akara & Pap</h3>
+                    <p class="text-gray-700">A delicious  meal served for breakfast with vegetables</p>
+                    <p class="text-gray-900 font-bold mt-4">$32.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Coconut Rice</h3>
+                    <p class="text-gray-700">A delicious meal served with vegetables and proteins.</p>
+                    <p class="text-gray-900 font-bold mt-4">$52.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snacks Tab -->
+    <div id="snacks" class="tab-content hidden">
+        <h2 class="text-2xl font-bold mb-4 p-2">Snacks</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$54.99</p>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x300" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Pop Corn</h3>
+                    <p class="text-gray-700">Crispy golden baked corn with a fun taste.</p>
+                    <p class="text-gray-900 font-bold mt-4">$54.99</p>
+                </div>
+            </div>
+            <!-- Add more snack cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Egg Roll</h3>
+                    <p class="text-gray-700">A delicious snack with flour and egg.</p>
+                    <p class="text-gray-900 font-bold mt-4">$14.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Doughnut</h3>
+                    <p class="text-gray-700">A delicious snack with flour.</p>
+                    <p class="text-gray-900 font-bold mt-4">$10.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Pizza</h3>
+                    <p class="text-gray-700">A delicious star treat that got you covered.</p>
+                    <p class="text-gray-900 font-bold mt-4">$34.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Burger</h3>
+                    <p class="text-gray-700">A delicious snack that made of flour, meat, and vegetables.</p>
+                    <p class="text-gray-900 font-bold mt-4">$34.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Meat Pie</h3>
+                    <p class="text-gray-700">A delicious snack mixed with flour and meat.</p>
+                    <p class="text-gray-900 font-bold mt-4">$14.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Cup Cake</h3>
+                    <p class="text-gray-700">A delicious snack that keeps you coming back for more.</p>
+                    <p class="text-gray-900 font-bold mt-4">$14.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Ceremonial Cake</h3>
+                    <p class="text-gray-700">A delicious ceremonial snack that add spice to every celebrations.</p>
+                    <p class="text-gray-900 font-bold mt-4">$74.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Milky Doughnut</h3>
+                    <p class="text-gray-700">A delicious snack that speaks for itself by the power of milk.</p>
+                    <p class="text-gray-900 font-bold mt-4">$44.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">Sausage Roll</h3>
+                    <p class="text-gray-700">A delicious snack with flour and protein.</p>
+                    <p class="text-gray-900 font-bold mt-4">$14.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drinks Tab -->
+    <div id="drinks" class="tab-content hidden">
+        <h2 class="text-2xl font-bold mb-4 p-2">Drinks</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+            <!-- Add more snack cards as needed -->
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+             <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+                </div>
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                    <p class="text-gray-700">Crispy golden French fries.</p>
+                    <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function showTab(tabId) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(function(tabContent) {
+            tabContent.classList.add('hidden');
+        });
+
+        // Remove focus border from all buttons
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.classList.remove('border-gray-800');
+        });
+
+        // Show the selected tab and add border to the corresponding button
+        document.getElementById(tabId).classList.remove('hidden');
+        event.target.classList.add('border-gray-800');
+    }
+</script>
+<script src="main.js"></script>
+
+</body>
+</html>

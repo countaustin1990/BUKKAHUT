@@ -1,0 +1,19 @@
+/*CSS*/
+
+#backToTop {
+  z-index: 1000;
+}
+
+#about {
+    height: 60svh;
+}
+#home {
+    height: 80svh;
+}
+
+#about {
+    height: 40svh;
+}
+.vote {
+    margin-top: 20px;
+}

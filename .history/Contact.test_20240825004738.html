@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bukka Hut Contact Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <section class="flex flex-col items-center justify-center min-h-screen py-12 bg-white">
+        <div class="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg">
+            <h2 class="text-3xl font-bold text-center text-green-600 mb-6">Contact Bukka Hut</h2>
+            <form class="space-y-6">
+                <!-- Name Field -->
+                <div>
+                    <label for="name" class="block text-lg font-semibold mb-2">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600">
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block text-lg font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600">
+                </div>
+
+                <!-- Phone Number Field -->
+                <div>
+                    <label for="phone" class="block text-lg font-semibold mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600">
+                </div>
+
+                <!-- Message Field -->
+                <div>
+                    <label for="message" class="block text-lg font-semibold mb-2">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required
+                              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-green-600"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" class="w-full bg-green-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

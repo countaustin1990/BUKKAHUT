@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="Logo" content="./Logo.png" />
+
+    <title>Bukka Hut</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animate-scroll {
+            display: inline-flex;
+            animation: scroll 10s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased">
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-8 right-8 text-bold bg-orange-700 text-gray-800 p-4 rounded-full shadow-lg hover:bg-orange-600 transition-transform transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200 mx-auto" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+     <!-- Navigation -->
+  <nav class="shadow-md bg-gradient-to-r from-gray-800 via-blue-900 to-gray-900 text-gray-200">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+      <div class="text-2xl font-bold text-blue-600">
+        <a href="#" class="flex flex-col lg:flex-row items-center lg:space-x-8 p-4">
+          <img src="Logo-r.png" alt="Bukka Hut" width="80">
+          </a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="text-gray-200 hover:text-orange-700 font-bold">Home</a>
+        <a href="About.html" class="text-gray-200 hover:text-orange-700 font-bold">About</a>
+        <a href="Menu.test.html" class="text-gray-200 hover:text-orange-700 font-bold">Menu</a>
+        <a href="Careers.html" class="text-gray-200 hover:text-orange-700 font-bold">Careers</a>
+        <a href="./Contact.main.html" class="text-gray-200 hover:text-orange-700 font-bold">Contact</a>
+      </div>
+      <div class="md:hidden">
+        <button id="menu-button" class="text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 shadow-md">
+      <a href="test.html" class="block px-4 py-2 text-white hover:bg-orange-600">Home</a>
+      <a href="./About.html" class="block px-4 py-2 text-white hover:bg-orange-600">About</a>
+      <a href="./Menu.test.html" class="block px-4 py-2 text-white hover:bg-orange-600">Menu</a>
+      <a href="./Career.html" class="block px-4 py-2 text-white hover:bg-orange-600">Career</a>
+      <a href="./Contact.main.html" class="block px-4 py-2 text-white hover:bg-orange-600">Contact</a>
+    </div>
+  </nav>
+
+
+    <!-- Search Bar Section -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Search Our Menu</h2>
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="Search for dishes, drinks, or desserts..."
+                    class="w-full p-4 rounded-lg bg-gray-700 border border-orange-400 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <button id="searchButton"
+                    class="absolute right-0 top-0  bg-orange-700 hover:bg-orange-600 text-white px-12 py-4 font-semibold rounded-lg">
+                    Search
+                </button>
+            </div>
+            <ul id="resultsList" class="mt-6 text-left"></ul>
+        </div>
+    </section>
+
+    <!-- Tabs for Menu Categories -->
+    <div class="container mx-auto py-10" id="menuItems">
+        <div class="flex justify-center mb-8">
+            <button class="tab-btn text-orange-700 border-b-2 px-6 py-2 mx-2 focus:outline-none focus:border-b-4 border-orange-700"
+                onclick="showTab('meals')">Meals</button>
+            <button class="tab-btn text-gray-700 border-b-2 px-6 py-2 mx-2 focus:outline-none"
+                onclick="showTab('snacks')">Snacks</button>
+            <button class="tab-btn text-gray-700 border-b-2 px-6 py-2 mx-2 focus:outline-none"
+                onclick="showTab('drinks')">Drinks</button>
+        </div>
+
+        <!-- Meals Tab -->
+        <div id="meals" class="tab-content">
+            <h2 class="text-2xl font-bold mb-4 p-2 text-center">Meals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Egba & Egusi soup</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Black Soup</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Amala & Gbegiri Soup</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Edikaikong Soup</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Esewu</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">African Salad</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Fired Rice</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Rice & Stew</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+                 <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Jollof Rice</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                 <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Coconut Rice</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                 <!-- Meal Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Meal" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Isala Soup</h3>
+                        <p class="text-gray-700">A delicious African meal served with vegetables and stash.</p>
+                        <p class="text-gray-900 font-bold mt-4">$12.99</p>
+                    </div>
+                </div>
+                <!-- Add more meal cards as needed -->
+            </div>
+        </div>
+
+        <!-- Snacks Tab (Hidden by default) -->
+        <div id="snacks" class="tab-content hidden">
+            <h2 class="text-2xl font-bold mb-4 p-2 text-center">Snacks</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Puff Puff</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                <!-- Add more snack cards as needed -->
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Pizza</h3>
+                        <p class="text-gray-700">A popular international snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Meat Pie</h3>
+                        <p class="text-gray-700">A popular international snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-68 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Sorch Egg</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Cup Cake</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">French Fries</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Milky Doughnut</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Jam Doughnut</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                  <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Fish Pie</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Chicken Pie</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Shawama</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                  <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Akara & Pap or Bread</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Sausage Roll</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Ceremonial Cake</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Pop Corn</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Ice Cream</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                 <!-- Snack Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Snack" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Burger</h3>
+                        <p class="text-gray-700">A popular West African snack.</p>
+                        <p class="text-gray-900 font-bold mt-4">$4.99</p>
+                    </div>
+                </div>
+                <!-- Add more snack cards as needed -->
+            </div>
+        </div>
+
+        <!-- Drinks Tab (Hidden by default) -->
+        <div id="drinks" class="tab-content hidden">
+            <h2 class="text-2xl font-bold mb-4 p-2 text-center">Drinks</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Chapman</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                <!-- Drinks Tab (Hidden by default) -->
+        <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Can Monster</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                <!-- Drinks Tab (Hidden by default) -->
+         <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Predator</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Pet Sprite 50cl plastic</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Can Schweppes</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">33 Beer</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                <!-- Add more drink cards as needed -->
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Heineken Big Bottle</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Hollandia Youghurt 1 litre</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Chivita 1 litre</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                  <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Navana & Small Eva</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                    
+                  <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Nutri-Chocolate</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                  <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Chocolate Viju</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                  <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Nutri-Milk</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                    
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Puply Orange 1 Litre Pet</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+                 <!-- Drink Cards -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://via.placeholder.com/300x200" alt="Drink" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-2">Pulpy Orange 35cl Pet</h3>
+                        <p class="text-gray-700">A refreshing non-alcoholic Nigerian cocktail.</p>
+                        <p class="text-gray-900 font-bold mt-4">$5.99</p>
+                    </div>
+                </div>
+
+                    
+
+                <!-- Add more drink cards as needed -->
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------------------------------------------------------------->
+  <section class="flex justify-center items-center p-5 container mx-auto vote">
+  <div class="overflow-x-auto whitespace-nowrap py-4 px-6 bg-orange-200 mt-5 container mx-auto">
+    <h2 class="text-3xl text-center font-bold mb-6">Our Menu</h2>
+    <div class="animate-scroll">
+      <a href="Menu.html">
+        <img src="burger.jpg" alt="Burger" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="fries.jpg" alt="Fries" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="drink.jpg" alt="Drink" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="dessert.jpg" alt="Dessert" class="inline-block h-48 mx-4 rounded-lg">
+        <img src="pizza.jpg" alt="Pizza" class="inline-block h-48 mx-4 rounded-lg">
+      </a>
+      <!-- Repeat images as needed to fill the scroll area -->
+    </div>
+  </div>
+</section>
+
+ <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div>
+                <div class="text-2xl font-bold text-blue-600">
+                    <a href="#" class="flex flex-col lg:flex-row items-center">
+                        <img src="Logo-r.png" alt="Bukka Hut" width="80">
+                    </a>
+                     <h3 class="text-xl font-bold text-white mb-4">Bukka Hut</h3>
+                </div>
+               
+                <p class="text-gray-400 leading-relaxed">
+                    Ready to satisfy your hunger!
+                </p>
+               
+            </div>
+
+            <!-- Navigation Links -->
+            <div>
+                <h4 class="text-lg font-bold text-white mb-4">Quick Links</h4>
+                <ul>
+                    <li class="mb-2">
+                        <a href="./index.html" class="hover:text-white transition-colors">Home</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="./About.html" class="hover:text-white transition-colors">About Us</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="./Menu.test.html" class="hover:text-white transition-colors">Menu</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="Careers.html" class="hover:text-white transition-colors">Careers</a>
+                    </li>
+                    <li>
+                        <a href="./Contact.main.html" class="hover:text-white transition-colors">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+<!-- Social Media -->
+<div>
+  <h4 class="text-lg font-bold text-white mb-4">Follow Us</h4>
+  <div class="flex space-x-4">
+    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+      <img src="https://img.icons8.com/ios-filled/30/ffffff/facebook-new.png" alt="Facebook" class="icont">
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+      <img src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="Twitter" class="icont">
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+      <img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="LinkedIn" class="icont">
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+      <img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram" class="icont">
+    </a>
+  </div>
+</div>
+            <!-- Newsletter -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4">Newsletter</h4>
+                <p class="text-gray-400 mb-4">
+                    Subscribe to our newsletter to stay updated on the latest news and special offers.
+                </p>
+                <form>
+                    <input type="email" placeholder="Enter your email" class="w-full p-2 mb-4 text-gray-900 rounded-lg focus:outline-none">
+                    <button type="submit" class="w-full bg-orange-700 text-white p-2 rounded-lg hover:bg-orange-600 transition-colors">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p class="text-gray-400">&copy; 2024 Bukka Hut. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+
+   <script>
+    // JavaScript for Tab Functionality
+    function showTab(tabName) {
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => tab.classList.add('hidden'));
+        document.getElementById(tabName).classList.remove('hidden');
+        document.querySelectorAll('.tab-btn').forEach(button => button.classList.remove('border-orange-700', 'text-orange-700'));
+        document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('border-orange-700', 'text-orange-700');
+    }
+
+    // Mobile Menu Toggle
+    document.getElementById('menu-button').addEventListener('click', function () {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.remove('hidden');
+        } else {
+            backToTopButton.classList.add('hidden');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Search Functionality
+    document.getElementById('searchButton').addEventListener('click', function () {
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        const resultsList = document.getElementById('resultsList');
+        resultsList.innerHTML = '';
+
+        // Mock data categorized by tabs
+        const menuItems = {
+            meals: [
+                'Egba & Egusi soup',
+                'Black Soup',
+                'Amala & Gbegiri Soup',
+                'Edikaikong Soup',
+                'Esewu',
+                'African Salad',
+                'Fired Rice',
+                'Rice & Stew',
+                'Jollof Rice',
+                'Coconut Rice',
+                'Isala Soup'
+                ],
+            snacks: [
+                'Puff Puff',
+                'Pizza',
+                'Meat Pie',
+                'Sorch Egg',
+                'Cup Cake',
+                'French Fries',
+                'Milky Doughnut',
+                'Jam Doughnut',
+                'Fish Pie',
+                'Chicken Pie',
+                'Shawama',
+                'Akara & Pap or Bread',
+                'Sausage Roll',
+                'Ceremonial Cake',
+                'Pop Corn',
+                'Ice Cream',
+                'Burger'
+                ],
+            drinks: [
+                'Chapman',
+                'Can Monster',
+                'Predator',
+                'Pet Sprite 50cl plastic',
+                'Can Schweppes',
+                '33 Beer',
+                'Heineken Big Bottle',
+                'Hollandia Youghurt 1 litre',
+                'Chivita 1 litre',
+                'Navana & Small Eva',
+                'Nutri-Chocolate',
+                'Chocolate Viju',
+                'Nutri-Milk',
+                'Puply Orange 1 Litre Pet',
+                'Pulpy Orange 35cl Pet'
+                ]
+        };
+
+        let foundItem = false;
+
+        Object.keys(menuItems).forEach(tabName => {
+            menuItems[tabName].forEach(item => {
+                if (item.toLowerCase().includes(searchQuery)) {
+                    foundItem = true;
+                    // Display the corresponding tab
+                    showTab(tabName);
+
+                    // Find the relevant item in the tab and highlight it
+                    const tabContent = document.getElementById(tabName);
+                    const itemElements = tabContent.querySelectorAll('h3');
+                    itemElements.forEach(el => {
+                        if (el.textContent.toLowerCase().includes(searchQuery)) {
+                            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            el.classList.add('bg-yellow-300'); // Highlighting the item
+                            setTimeout(() => {
+                                el.classList.remove('bg-yellow-300');
+                            }, 2000);
+                        }
+                    });
+                }
+            });
+        });
+
+        // If no item is found, show a message
+        if (!foundItem) {
+            resultsList.innerHTML = '<li class="text-red-500">No items found matching your search.</li>';
+        }
+    });
+</script>
+
+</body>
+
+</html>
